@@ -108,7 +108,7 @@ Copyright 2015 Google Inc.
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.3</version>
+        <version>3.1</version>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <source>1.7</source>
@@ -120,6 +120,11 @@ Copyright 2015 Google Inc.
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
         <version>${appengine.sdk.version}</version>
+        <configuration>
+          <additionalParams>
+            <additionalParam>--service_account_json_key_file=alecgibson-1c25a58070a8.json</additionalParam>
+          </additionalParams>
+        </configuration>
       </plugin>
     </plugins>
   </build>
