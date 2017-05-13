@@ -1,0 +1,15 @@
+sudo: false
+language: java
+before_install:
+- openssl aes-256-cbc -K $encrypted_649149061857_key -iv $encrypted_649149061857_iv
+  -in alecgibson-04c5cf9f9169.json.enc -out alecgibson-04c5cf9f9169.json -d
+jdk: oraclejdk7
+script: mvn package
+deploy:
+  provider: gae
+  config: target/app.yaml
+  keyfile: alecgibson-04c5cf9f9169.json
+  project: alecgibson-167206
+  skip_cleanup: true
+  default: true
+  on: master
